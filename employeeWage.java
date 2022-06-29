@@ -3,20 +3,18 @@ import java.util.Random;
 
 public class employeeWage {
     public static void main(String[] args) {
-        System.out.println("Welcome to Employee Wage Computation Program");
+        System.out.println("Welcom to Employee Wage Camputation Program");
         Random random = new Random();
         int attendance = random.nextInt(2);
-
         int wagePerHour = 20;
         int fullDayHours = 8;
-        int wagePerDay = wagePerHour + fullDayHours;
+        int wagePerDay = 8;
 
         if (attendance == 1) {
-            System.out.println("Employee is present");
+            System.out.println("Employee Present");
             wagePerDay = wagePerHour * fullDayHours;
-        } else {
-            System.out.println("Employee is absent");
-            System.out.println("Employee wage Per Day : " + wagePerDay);
-        }
+        } else
+            System.out.println("Employee Absent");
+        System.out.println("Employee Wage Per Day:" + wagePerDay);
     }
-}
+    }    
