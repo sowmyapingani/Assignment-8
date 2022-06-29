@@ -2,38 +2,41 @@ package com.bridge.labzs;
 import java.util.Random;
 
 public class employeeWage {
-                    public static void main(String[] args) {
-                        System.out.println("Welcom to Employee Wage Camputation Program");
+            public static final int IS_PART_TIME = 1;
+            public static final int IS_FULL_TIME = 2;
+            public static final int EMP_RATE_PER_HOUR = 20;
+            public static final int NUM_OF_WORKING_DAYS = 2;
+            public static final int MAX_HRS_IN_MONTH = 10;
 
-                        Random random = new Random();
+            public static void main(String[] args) {
+                int emphrs = 0, totalemphrs = 0, totalworkingdays = 0, totalEmpWages;
+                while (totalemphrs <= MAX_HRS_IN_MONTH && totalworkingdays < NUM_OF_WORKING_DAYS) {
+                    totalworkingdays++;
+                    int empcheck = (int) Math.floor(Math.random() * 10) % 3;
 
-                        int wagePerHour = 20;
-                        int fullDayHours = 8;
-                        int partTimeHours = 4;
-                        int monthlySalary = 0;
-                        int monthlyHours = 0;
-                        int wagePerDay = 0;
-                        int days = 0;
-
-                        while (monthlyHours <= 100 && days <= 20) {
-
-                            int attendance = random.nextInt(3);
-                            wagePerDay = 0;
-                            switch (attendance) {
-                                case 0:
-                                    System.out.println("Employee Absent");
-                                    break;
-                                case 1:
-                                    wagePerDay = partTimeHours * wagePerHour;
-                                    monthlyHours = monthlyHours + partTimeHours;
-                                    break;
-                                default:
-                                    wagePerDay = wagePerHour * fullDayHours;
-                                    monthlyHours = monthlyHours + fullDayHours;
-                            }
-                            monthlySalary = monthlySalary + wagePerDay;
-                            System.out.println("Day:" + days + "monthlyHours:" + monthlyHours + "monthlySalary");
-                            days++;
-                        }
+                    switch (empcheck) {
+                        case IS_PART_TIME:
+                            emphrs = 4;
+                            break;
+                        case IS_FULL_TIME:
+                            emphrs = 8;
+                            break;
+                        default:
+                            emphrs = 0;
                     }
+                    totalemphrs += emphrs;
+                    System.out.println("Days:" + totalworkingdays + "Emp hr:" + emphrs);
                 }
+                //return emphrs;
+            }
+
+            //private int totalemphrs;
+            //int totalEmpWage = totalemphrs * EMP_RATE_PER_HOUR;
+            //System.out.println("Total Emp Wage: " + totalEmpWages);
+
+            //public static void main(String[] args) {
+
+        }
+
+
+
